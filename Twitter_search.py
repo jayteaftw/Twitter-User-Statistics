@@ -5,13 +5,15 @@ from pyppeteer import launch
 
 
 async def main():
-    
+    on = 1
+    user = input('Enter Twitter User')
+    print("Loading Data")
     browser = await launch(headless=True)
     page = await browser.newPage()
     await page.goto('https://twitter.com/elonmusk')
-    await asyncio.sleep(5)
+    await asyncio.sleep(2)
 
-    pages = 10
+    pages = 100
     for i in range(pages):
         await page.evaluate('() => window.scrollTo(0,document.body.scrollHeight)')
         await asyncio.sleep(1)
@@ -37,11 +39,18 @@ async def main():
         tweets.append((name_value, comment_count, retweet_count, like_count))
 
 
-    print(tweets)
+    print(tweets[0])
 
     await browser.close()
+    print('Data Loaded')
 
+    while(on == 1):
+        option = input("Input 1 for Average likes per tweet, 2 for Average retweet per tweet, 3 for Average comments per tweet or 9 to quit system.")
+        if(option == 1):
+            sum = 0
+            #for i in
 
+            
 
 
 asyncio.get_event_loop().run_until_complete(main())
