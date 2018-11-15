@@ -13,7 +13,7 @@ async def main():
     await page.goto('https://twitter.com/elonmusk')
     await asyncio.sleep(2)
 
-    pages = 100
+    pages = 10
     for i in range(pages):
         await page.evaluate('() => window.scrollTo(0,document.body.scrollHeight)')
         await asyncio.sleep(1)
@@ -48,8 +48,17 @@ async def main():
         option = input("Input 1 for Average likes per tweet, 2 for Average retweet per tweet, 3 for Average comments per tweet or 9 to quit system.")
         if(option == 1):
             sum = 0
-            #for i in
+        elif(option == 2):
+            sum = 0
+        elif(option == 3):
+            sum = 0
+        elif(option == 9):
+            on = 0
+        else:
+            print('Thats not an option')
+           
 
+            
             
 
 
